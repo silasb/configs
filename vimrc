@@ -27,8 +27,6 @@ set ic
 "set tabpagemax=15
 "nnoremap <silent> <C-n> :tabnext<CR>
 "nnoremap <silent> <C-p> :tabprevious<CR>
-map <leader>b :ls<CR>:e #
-map <leader>bd <Esc>:bd<CR>
 nnoremap <silent> <C-n> :bn<CR>
 nnoremap <silent> <C-p> :bp<CR>
 "nnoremap <silent> <C-t> :tabnew .<CR>
@@ -73,3 +71,11 @@ au BufNewFile,BufRead *.erb set ft=eruby.html
 set tags=tags;\
 
 map <Leader>t :TlistToggle<CR>
+
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplorerMoreThanOne = 0
+let g:miniBufExplModSelTarget = 0
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplVSplit = 25
+let g:miniBufExplSplitBelow=1
