@@ -60,19 +60,17 @@ if has("gui_running")
   set guifont=Inconsolata\ 12
   "set guioptions-=m
   set guioptions-=T
+
+  let g:miniBufExplModSelTarget = 1
+  let g:miniBufExplorerMoreThanOne = 0
+  let g:miniBufExplModSelTarget = 0
+  let g:miniBufExplUseSingleClick = 1
+  let g:miniBufExplMapWindowNavVim = 1
+  let g:miniBufExplVSplit = 25
+  let g:miniBufExplSplitBelow=1
 endif
 
 au BufNewFile,BufRead *.rhtml set syn=eruby
 au BufNewFile,BufRead *.erb set ft=eruby.html
 
-set tags=tags;\
-
-map <Leader>t :TlistToggle<CR>
-
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplorerMoreThanOne = 0
-let g:miniBufExplModSelTarget = 0
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplVSplit = 25
-let g:miniBufExplSplitBelow=1
+set bg=light

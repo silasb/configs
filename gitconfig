@@ -10,15 +10,15 @@
   changed = green
   untracked = cyan
 [core]
-	editor = vim
-	autocrlf = false
+  editor = vim
+  autocrlf = false
 [user]
-	name = silasb
-	email = silas.baronda@gmail.com
+  name = silasb
+  email = silas.baronda@gmail.com
 [alias]
   st = status
   ci = commit
   co = checkout
   lg = log -p
 [push]
-	default = tracking
+  default = tracking
