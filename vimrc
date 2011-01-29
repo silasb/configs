@@ -39,10 +39,6 @@ map <F5> :w<CR>:make<CR>
 
 map <leader>d :NERDTreeToggle<CR>
 
-colorscheme ir_black
-
-set mouse=a
-
 "au BufWinLeave * mkview
 "au BufWinEnter * silent loadview
 
@@ -55,11 +51,13 @@ map <A-s> <Esc>:w<CR>
 imap <A-s> <Esc>:w<CR>
 
 if has("gui_running")
+  set mouse=a
   set lines=40
   "set cursorline
   set guifont=Inconsolata\ 12
   "set guioptions-=m
   set guioptions-=T
+  colorscheme ir_black
 
   let g:miniBufExplModSelTarget = 1
   let g:miniBufExplorerMoreThanOne = 0
@@ -68,9 +66,36 @@ if has("gui_running")
   let g:miniBufExplMapWindowNavVim = 1
   let g:miniBufExplVSplit = 25
   let g:miniBufExplSplitBelow=1
+else
+  colorscheme ir_black
+  set t_Co=256
+
+  " Set this for desert
+  "set bg=light
+  "set bg=dark
 endif
 
 au BufNewFile,BufRead *.rhtml set syn=eruby
 au BufNewFile,BufRead *.erb set ft=eruby.html
 
-set bg=light
+set dir=~/.vim/swaps
+set backupdir=~/.vim/swaps
+
+" remove current highlighted word
+nnoremap <leader><space> :noh<cr>
+" need to investigate why this is here
+" nnoremap <tab> %
+" vnoremap <tab> %
+
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=85
+
+nnoremap ; :
+
+inoremap jj <ESC>
+
+" ack.vim
+nmap <leader>a :Ack <c-r>=expand("<cword>")<cr>
+nmap <leader>s :Ack 
