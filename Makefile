@@ -4,6 +4,7 @@ install:
 	echo "No default"
 
 install-vim:
+	rm -rfi ${HOME}/.vim
 	@ln -sf `pwd`/vimrc ${HOME}/.vimrc
 	@ln -sf `pwd`/vim/ ${HOME}/.vim
 	@mkdir -p ${HOME}/bin
