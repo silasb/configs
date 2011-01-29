@@ -90,7 +90,7 @@ nnoremap <leader><space> :noh<cr>
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-if has("colorcolum")
+if exists("&colorcolumn")
   set colorcolumn=85
 endif
 
