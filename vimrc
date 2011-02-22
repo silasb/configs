@@ -68,7 +68,8 @@ if has("gui_running")
   let g:miniBufExplSplitBelow=1
 else
   colorscheme ir_black
-  set t_Co=256
+  " Setting this to 128 works good
+  set t_Co=128
 
   " Set this for desert
   "set bg=light
