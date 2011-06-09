@@ -67,7 +67,7 @@ if has("gui_running")
   let g:miniBufExplVSplit = 25
   let g:miniBufExplSplitBelow=1
 else
-  colorscheme ir_black
+  colorscheme desert
   " Setting this to 128 works good
   set t_Co=128
 
@@ -102,3 +102,5 @@ inoremap jj <ESC>
 " ack.vim
 nmap <leader>a :Ack <c-r>=expand("<cword>")<cr>
 nmap <leader>s :Ack 
+
+"set list listchars=tab:\ \ ,trail:·

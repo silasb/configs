@@ -111,7 +111,9 @@ compdef _cucumber_features cuc
 
 export RUBYLIB=$HOME/.rubygems/lib
 export GEM_HOME=$HOME/.rubygems/gems
-export PATH=$HOME/bin:$HOME/.rubygems/bin:$GEM_HOME/bin:$PATH:$HOME/opt/bin
+export PATH=$HOME/bin:$PATH:$HOME/opt/bin
 
 xmodmap $HOME/.Xmodmap > /dev/null 2>&1
 $HOME/bin/trackball.sh
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
