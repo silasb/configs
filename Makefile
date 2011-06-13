@@ -14,5 +14,12 @@ install-vim:
 install-git:
 	@ln -sf `pwd`/gitconfig ${HOME}/.gitconfig
 
+install-zfs:
+	@ln -sf `pwd`/zshrc ${HOME}/.zshrc
+	@ln -sf `pwd`/zprofile ${HOME}/.zprofile
+
+install-aliases:
+	@ln -sf `pwd`/aliases ${HOME}/.aliases
+
 uninstall:
 	echo "nothing yet"
