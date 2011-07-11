@@ -13,7 +13,7 @@
   editor = vim
   autocrlf = false
 [user]
-  name = silasb
+	name = silasb
   email = silas.baronda@gmail.com
 [alias]
   st = status
