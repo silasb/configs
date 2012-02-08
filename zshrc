@@ -3,6 +3,9 @@ compinit
 
 setopt auto_cd
 
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
+  'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
 export EDITOR=vim
 
 if [ -e "$HOME/.aliases" ]; then
@@ -15,7 +18,9 @@ setopt prompt_subst
 
 setopt histignoredups
 
-export HISTSIZE=200
+export HISTSIZE=1000
+export SAVEHIST=1000
+export HISTFILE=~/.history
 
 tcsh-backward-word() {
   local WORDCHARS="${WORDCHARS:s@/@}"
@@ -25,6 +30,7 @@ zle -N tcsh-backward-word
 
 bindkey -e
 
+bindkey '^U' backward-kill-line
 bindkey '^[[5C' emacs-forward-word
 bindkey '^[[5D' emacs-backward-word
 bindkey '^[[3~' delete-char
@@ -73,3 +79,5 @@ export PATH=$HOME/bin:$PATH:$HOME/opt/bin
 source $HOME/.aliases
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+alias tmux="TERM=screen-256color-bce tmux"
