@@ -11,6 +11,11 @@ install-vim:
 	@ln -sf `pwd`/bin/ack ${HOME}/bin
 	@echo 'Put export PATH=$$HOME/bin:$$PATH in your *rc file'
 
+uninstall-vim:
+	@rm -rfi ${HOME}/.vim
+	@rm -i ${HOME}/.vimrc
+	@rm -i ${HOME}/bin/ack
+
 install-git:
 	@ln -sf `pwd`/gitconfig ${HOME}/.gitconfig
 
