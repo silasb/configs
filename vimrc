@@ -1,8 +1,28 @@
+"-------
+" Vundle
+"-------
+
 set nocompatible
+filetype off " required!
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" let Vundle manage Vundle, required
+Bundle 'gmarik/vundle'
+
+"---------------
+" Plugin Bundles
+"---------------
+
+Bundle 'chrisbra/NrrwRgn'
+Bundle 'mutewinter/LustyJuggler'
+Bundle 'Raimondi/delimitMate'
+
+filetype plugin indent on
+
 syntax on
 filetype on
-filetype indent on
-filetype plugin on
 set nu
 set ai
 set smarttab
@@ -12,6 +32,7 @@ set shiftwidth=2
 set softtabstop=2
 set ruler
 set wildmenu
+set hidden " this allows you to move between buffers and not have to save
 
 let mapleader=','
 
@@ -34,8 +55,6 @@ nnoremap <silent> <C-p> :bp<CR>
 "au BufWinEnter * silent loadview
 
 "set iskeyword-=_
-" this allows you to move between buffers and not have to save
-set hidden
 
 if has("gui_running")
   set mouse=a
@@ -46,7 +65,7 @@ if has("gui_running")
   "set guioptions-=T
   set guioptions=
   set bg=dark
-  colorscheme solarized
+  "colorscheme solarized
 
   "let g:miniBufExplModSelTarget = 1
   "let g:miniBufExplorerMoreThanOne = 0
@@ -55,10 +74,18 @@ if has("gui_running")
   "let g:miniBufExplMapWindowNavVim = 1
   "let g:miniBufExplVSplit = 25
   "let g:miniBufExplSplitBelow=1
+
+  if exists("&colorcolumn")
+    set colorcolumn=85
+  endif
+
+ set cursorline                  " highlight current line
+    hi cursorline guibg=#333333     " highlight bg color of current line
+    hi CursorColumn guibg=#333333
 else
   set bg=dark
   "let g:solarized_termcolors=256
-  colorscheme solarized
+  "colorscheme solarized
   " Setting this to 128 works good
   "set t_Co=128
 
@@ -66,6 +93,12 @@ else
   "set bg=light
   "set bg=dark
 endif
+
+" -------------
+" Lusty Juggler
+" -------------
+let g:LustyJugglerShowKeys=1
+nnoremap <leader>, :e#<CR>
 
 "let g:miniBufExplModSelTarget = 1
 "let g:miniBufExplMapWindowNavVim = 1
@@ -75,8 +108,8 @@ endif
 au BufNewFile,BufRead *.rhtml set syn=eruby
 au BufNewFile,BufRead *.erb set ft=eruby.html
 
-set dir=~/.vim/swaps
-set backupdir=~/.vim/swaps
+"set dir=~/.vim/swaps
+"set backupdir=~/.vim/swaps
 
 " need to investigate why this is here
 " nnoremap <tab> %
@@ -85,9 +118,6 @@ set backupdir=~/.vim/swaps
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-if exists("&colorcolumn")
-  set colorcolumn=85
-endif
 
 nnoremap ; :
 
@@ -104,12 +134,6 @@ set autoread
 "set noconfirm
 
 "au FileType html,xml,xhtml so ~/.vim/ftplugin/html_autoclosetag.vim
-
-" VIM UI {
- set cursorline                  " highlight current line
-    hi cursorline guibg=#333333     " highlight bg color of current line
-    hi CursorColumn guibg=#333333
-" }
 
 " Key (re)Mappings {
 
