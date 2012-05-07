@@ -19,101 +19,86 @@ Bundle 'chrisbra/NrrwRgn'
 Bundle 'mutewinter/LustyJuggler'
 Bundle 'Raimondi/delimitMate'
 
-filetype plugin indent on
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'Lokaltog/vim-powerline'
 
-syntax on
-filetype on
-set nu
-set ai
-set smarttab
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set ruler
-set wildmenu
-set hidden " this allows you to move between buffers and not have to save
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-rails'
+
+Bundle 'pangloss/vim-javascript'
+Bundle 'kchmck/vim-coffee-script'
+
+Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+
+filetype plugin indent on
 
 let mapleader=','
 
-" turn off highlight search - turn on with set hls
-set hls
-
-set incsearch
-" " case insensitive search
-set ic
-"
-"set showtabline=2
-"set tabpagemax=15
-"nnoremap <silent> <C-n> :tabnext<CR>
-"nnoremap <silent> <C-p> :tabprevious<CR>
-nnoremap <silent> <C-n> :bn<CR>
-nnoremap <silent> <C-p> :bp<CR>
-"nnoremap <silent> <C-t> :tabnew .<CR>
-
-"au BufWinLeave * mkview
-"au BufWinEnter * silent loadview
-
-"set iskeyword-=_
-
 if has("gui_running")
   set mouse=a
-  set lines=40
+  set lines=60
+  set columns=120
   "set cursorline
   "set guifont=Inconsolata\ 10
   "set guioptions-=m
   "set guioptions-=T
   set guioptions=
-  set bg=dark
-  "colorscheme solarized
-
-  "let g:miniBufExplModSelTarget = 1
-  "let g:miniBufExplorerMoreThanOne = 0
-  "let g:miniBufExplModSelTarget = 0
-  "let g:miniBufExplUseSingleClick = 1
-  "let g:miniBufExplMapWindowNavVim = 1
-  "let g:miniBufExplVSplit = 25
-  "let g:miniBufExplSplitBelow=1
-
-  if exists("&colorcolumn")
-    set colorcolumn=85
-  endif
-
- set cursorline                  " highlight current line
-    hi cursorline guibg=#333333     " highlight bg color of current line
-    hi CursorColumn guibg=#333333
-else
-  set bg=dark
-  "let g:solarized_termcolors=256
-  "colorscheme solarized
-  " Setting this to 128 works good
-  "set t_Co=128
-
-  " Set this for desert
-  "set bg=light
-  "set bg=dark
+  set guifont=Menlo\ for\ Powerline:h13
 endif
 
 " -------------
 " Lusty Juggler
 " -------------
 let g:LustyJugglerShowKeys=1
+let g:LustyJugglerSuppressRubyWarning = 1
 nnoremap <leader>, :e#<CR>
 
-"let g:miniBufExplModSelTarget = 1
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
+" UI
+set ruler
+set nu " Line numbers
+set laststatus=2 "Always show statusline
+set encoding=utf-8
+set t_Co=256 " works well under SL on mac
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
 
-au BufNewFile,BufRead *.rhtml set syn=eruby
-au BufNewFile,BufRead *.erb set ft=eruby.html
+" Colors
+set bg=dark
+colorscheme jellybeans
 
-"set dir=~/.vim/swaps
-"set backupdir=~/.vim/swaps
+" Behaviors
+syntax on
+set autoread
+set wildmenu
+set hidden " this allows you to move between buffers and not have to save
+set autowrite " writes on make/shell commands
 
-" need to investigate why this is here
-" nnoremap <tab> %
-" vnoremap <tab> %
+" Text format
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set cindent
+set autoindent
+set smarttab
+set expandtab
+
+" Searching
+set hlsearch " Highlight search
+set incsearch
+set ignorecase
+
+" visual
+set showmatch " show matching bracket
+
+" Backups
+set backup
+set dir=~/.vim/tmp
+set backupdir=~/.vim/backup
+
+nnoremap <silent> <C-n> :bn<CR>
+nnoremap <silent> <C-p> :bp<CR>
 
 set wrap
 set textwidth=79
@@ -128,8 +113,6 @@ inoremap jj <ESC>
 set list listchars=tab:\ \ ,trail:·
 
 autocmd Filetype *.js set nocindent
-
-set autoread
 
 "set noconfirm
 
