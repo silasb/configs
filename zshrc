@@ -74,10 +74,21 @@ _git_remote_branch() {
 }
 compdef _git_remote_branch grb
 
-export PATH=$HOME/bin:$PATH:$HOME/opt/bin
+export PATH=/Users/emerge/.gem/ruby/1.8/bin:$HOME/bin:$HOME/opt/bin:$HOME/.cabal/bin:$PATH
 
 source $HOME/.aliases
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 alias tmux="TERM=screen-256color-bce tmux"
+
+source ~/perl5/perlbrew/etc/bashrc
+
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export GOPATH=$HOME/gopath
+export PATH=$GOPATH:$GOBIN:$PATH
+export GOOS=darwin
+export GOARCH=amd64
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -12,6 +12,7 @@
 [core]
   editor = vim
   autocrlf = false
+	excludesfile = /Users/emerge/.gitignore
 [user]
 	name = silasb
   email = silas.baronda@gmail.com
@@ -20,5 +21,7 @@
   ci = commit
   co = checkout
   lg = log -p
+  lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  #lol = log --graph --decorate --date=local --pretty=format:'%h %cd (%an) %s%d'
 [push]
-  default = tracking
+	default = upstream
