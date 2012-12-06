@@ -5,3 +5,5 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gc='git commit'
 alias gr='git rm'
+
+alias grep='grep -i --color'

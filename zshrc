@@ -78,8 +78,6 @@ export PATH=/Users/emerge/.gem/ruby/1.8/bin:$HOME/bin:$HOME/opt/bin:$HOME/.cabal
 
 source $HOME/.aliases
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 alias tmux="TERM=screen-256color-bce tmux"
 
 source ~/perl5/perlbrew/etc/bashrc

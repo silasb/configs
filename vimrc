@@ -18,6 +18,11 @@ Bundle 'gmarik/vundle'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'mutewinter/LustyJuggler'
 Bundle 'Raimondi/delimitMate'
+Bundle 'ervandew/supertab'
+Bundle 'scrooloose/syntastic'
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
 
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'Lokaltog/vim-powerline'
@@ -30,6 +35,14 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Bundle 'bbommarito/vim-slim'
+
+" Deps for vim-snipmate
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+
+Bundle 'garbas/vim-snipmate'
 
 filetype plugin indent on
 
@@ -53,6 +66,18 @@ endif
 let g:LustyJugglerShowKeys=1
 let g:LustyJugglerSuppressRubyWarning = 1
 nnoremap <leader>, :e#<CR>
+
+" ---------
+" Syntastic
+" ---------
+"let g:syntastic_enable_signs=1
+"let g:syntastic_auto_loc_list=1
+
+" --------
+" SuperTab
+" --------
+let g:SuperTabDefaultCompletionType="<c-x><c-n>"
+let g:SuperTabContextDefaultCompletionType="<c-x><c-n>"
 
 " UI
 set ruler
@@ -91,6 +116,7 @@ set ignorecase
 
 " visual
 set showmatch " show matching bracket
+set matchtime=2 " How many tenths of a second to blink
 
 " Backups
 set backup
