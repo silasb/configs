@@ -57,7 +57,11 @@ if has("gui_running")
   "set guioptions-=m
   "set guioptions-=T
   set guioptions=
-  set guifont=Menlo\ for\ Powerline:h13
+  if has('mac')
+    set guifont=Menlo\ for\ Powerline:h13
+  elseif has('unix')
+    set guifont=Menlo\ for\ Powerline
+  end
 endif
 
 " -------------
