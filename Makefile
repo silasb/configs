@@ -29,6 +29,7 @@ install-bash:
 
 install-aliases:
 	@ln -sf `pwd`/aliases ${HOME}/.aliases
+	@. ${HOME}/.aliases
 
 uninstall:
 	echo "nothing yet"
