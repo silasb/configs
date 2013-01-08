@@ -35,7 +35,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-Bundle 'bbommarito/vim-slim'
+Bundle 'slim-template/vim-slim'
 
 " Deps for vim-snipmate
 Bundle "MarcWeber/vim-addon-mw-utils"
