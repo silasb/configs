@@ -7,9 +7,12 @@ install-vim:
 	rm -rfi ${HOME}/.vim
 	@ln -sf `pwd`/vimrc ${HOME}/.vimrc
 	@ln -sf `pwd`/vim/ ${HOME}/.vim
+	@mkdir -p ${HOME}/.vim/bundle
+	@git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	@mkdir -p ${HOME}/bin
 	@ln -sf `pwd`/bin/ack ${HOME}/bin
 	@echo 'Put export PATH=$$HOME/bin:$$PATH in your *rc file'
+	@echo "Run vim +BundleInstall +qall"
 
 uninstall-vim:
 	@rm -rfi ${HOME}/.vim
