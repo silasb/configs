@@ -23,6 +23,10 @@ install-zfs:
 	@ln -sf `pwd`/zshrc ${HOME}/.zshrc
 	@ln -sf `pwd`/zprofile ${HOME}/.zprofile
 
+install-bash:
+	@ln -sf `pwd`/bash_profile ${HOME}/.bash_profile
+	@ln -sf `pwd`/bashrc ${HOME}/.bashrc
+
 install-aliases:
 	@ln -sf `pwd`/aliases ${HOME}/.aliases
 
