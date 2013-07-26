@@ -11,6 +11,7 @@ install-vim:
 	@git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	@mkdir -p ${HOME}/bin
 	@ln -sf `pwd`/bin/ack ${HOME}/bin
+	@mkdir -p ${HOME}/.vim/backup
 	@echo 'Put export PATH=$$HOME/bin:$$PATH in your *rc file'
 	@echo "Run vim +BundleInstall +qall"
 
