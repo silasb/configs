@@ -10,7 +10,6 @@
   changed = green
   untracked = cyan
 [core]
-  editor = vim
   autocrlf = false
   excludesfile = /Users/emerge/.gitignore
 [user]

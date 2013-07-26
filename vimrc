@@ -3,171 +3,99 @@
 "-------
 
 set nocompatible
-filetype off " required!
-
+filetype off " required by vundle
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
-" let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
-
-"---------------
-" Plugin Bundles
-"---------------
-
-Bundle 'chrisbra/NrrwRgn'
-Bundle 'mutewinter/LustyJuggler'
-Bundle 'Raimondi/delimitMate'
-Bundle 'ervandew/supertab'
-Bundle 'scrooloose/syntastic'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'Lokaltog/vim-powerline'
-
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-haml'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-rails'
-
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'vim-ruby/vim-ruby'
 
-Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-Bundle 'slim-template/vim-slim'
+Bundle 'airblade/vim-gitgutter'
+let g:gitgutter_enabled = 1
+highlight clear SignColumn
 
 " Deps for vim-snipmate
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
-
 Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
+
+" Theme
+Bundle 'w0ng/vim-hybrid'
+
+set backupdir=~/.vim/backup/
+set directory=~/.vim/backup/
+
+set guioptions=
+set guifont=Menlo\ Regular:h12"
 
 filetype plugin indent on
-
-let mapleader=','
-
-if has("gui_running")
-  set mouse=a
-  set lines=60
-  set columns=120
-  "set cursorline
-  "set guifont=Inconsolata\ 10
-  "set guioptions-=m
-  "set guioptions-=T
-  set guioptions=
-  if has('mac')
-    set guifont=Menlo\ for\ Powerline:h13
-  elseif has('unix')
-    set guifont=Menlo\ for\ Powerline
-  end
-endif
-
-" -------------
-" Lusty Juggler
-" -------------
-let g:LustyJugglerShowKeys=1
-let g:LustyJugglerSuppressRubyWarning = 1
-nnoremap <leader>, :e#<CR>
-
-" ---------
-" Syntastic
-" ---------
-"let g:syntastic_enable_signs=1
-"let g:syntastic_auto_loc_list=1
-
-" --------
-" SuperTab
-" --------
-let g:SuperTabDefaultCompletionType="<c-x><c-n>"
-let g:SuperTabContextDefaultCompletionType="<c-x><c-n>"
-
-" UI
-set ruler
-set nu " Line numbers
-set laststatus=2 "Always show statusline
-set encoding=utf-8
-set t_Co=256 " works well under SL on mac
-if exists('+colorcolumn')
-  set colorcolumn=80
-endif
-
-" Colors
-set bg=dark
-colorscheme jellybeans
-
-" Behaviors
 syntax on
-set autoread
-set wildmenu
-set hidden " this allows you to move between buffers and not have to save
-set autowrite " writes on make/shell commands
 
-" Text format
+let mapleader = "\<space>"
+
+" Ctrl-P
+
+let g:ctrlp_map = '<leader>t'
+
+set hidden
+
+" text format
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set cindent
 set autoindent
 set smarttab
-set expandtab
+"set expandtab
 
-" Searching
-set hlsearch " Highlight search
+" searching
+set hlsearch
 set incsearch
 set ignorecase
 
-" visual
-set showmatch " show matching bracket
-set matchtime=2 " How many tenths of a second to blink
+set nu
+:nmap \o :set paste!<CR>
 
-" Backups
-set backup
-set dir=~/.vim/tmp
-set backupdir=~/.vim/backup
+:nmap j gj
+:nmap k gk
 
-nnoremap <silent> <C-n> :bn<CR>
-nnoremap <silent> <C-p> :bp<CR>
+" nnoremap ; :
 
-set wrap
-set textwidth=79
-set formatoptions=qrn1
+:nmap <C-e> :e#<CR>
+" nnoremap <leader>, #e<CR>
+" nnoremap <silent> <C-n> :bnext<CR>
+" nnoremap <silent> <C-p> :bprev<CR>
+:nnoremap <leader>l :ls<cr>:b<space>
 
-nnoremap ; :
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-inoremap jj <ESC>
+set splitbelow
+set splitright
 
-" ack.vim
+" max height of current split
+" ctrl + w _
+" max width of current vsplit
+" ctrl + w |
+" reset splits
+" ctrl + w =
+"
+" close every window in the current tabview but the current one
+" ctrl + W o
 
-set list listchars=tab:\ \ ,trail:·
+nnoremap <leader><space> :noh<CR>
 
 autocmd Filetype *.js set nocindent
 
-"set noconfirm
-
-"au FileType html,xml,xhtml so ~/.vim/ftplugin/html_autoclosetag.vim
-
-" Key (re)Mappings {
-
-  map <C-J> <C-W>j<C-W>_
-  map <C-K> <C-W>k<C-W>_
-  map <C-L> <C-W>l<C-W>_
-  map <C-H> <C-W>h<C-W>_
-
-  nnoremap j gj
-  nnoremap k gk
-" }
-
-let g:Tlist_Ctags_Cmd = '$HOME/opt/bin/ctags'
-
-map <leader>d :NERDTreeToggle<CR>
-map <leader>l :Tlist<cr>
-map <leader>gs :GStatus
-map <leader>gb :GBlame
-nmap <leader>a :Ack <c-r>=expand("<cword>")<cr>
-nmap <leader>s :Ack
-" remove current highlighted word
-nnoremap <leader><space> :noh<cr>
-
-set modeline modelines=5
+colorscheme hybrid
