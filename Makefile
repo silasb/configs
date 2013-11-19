@@ -35,5 +35,8 @@ install-aliases:
 	@ln -sf `pwd`/aliases ${HOME}/.aliases
 	@. ${HOME}/.aliases
 
+install-tmux:
+	@ln -sf `pwd`/tmux.conf ${HOME}/.tmux.conf
+
 uninstall:
 	echo "nothing yet"
