@@ -20,8 +20,3 @@ function parse_git_branch {
 alias _userpwd='/usr/bin/perl -e '"'"'use Cwd;my $d=cwd();my $h=$ENV{"HOME"};my $dl=length($d);my $hl=length($h);if(($dl>=$hl)&&($h==substr($d,$hl))){print "~".substr($d,$hl,$dl);}else{print $d;}'"'"
 export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[34;1m\]\$(parse_git_branch)\[\e[36;1m\]\[\e[36;1m\]❯ \[\e[0m\]"
 export PROMPT_COMMAND='echo -ne "\033]0;$(_userpwd)\007"'
-
-export RUBY_GC_MALLOC_LIMIT=60000000
-export RUBY_FREE_MIN=200000
-# I think RUBY_HEAP_MIN_SLOTS is unuseful
-export RUBY_HEAP_MIN_SLOTS=200000
