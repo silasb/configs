@@ -99,3 +99,6 @@ nnoremap <leader><space> :noh<CR>
 autocmd Filetype *.js set nocindent
 
 colorscheme hybrid
+
+" comment color for hybrid #707880
+highlight LineNr guifg=#b294bb
