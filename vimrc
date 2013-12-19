@@ -17,6 +17,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'jnwhiteh/vim-golang'
 
 Bundle 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
@@ -102,3 +103,6 @@ colorscheme hybrid
 
 " comment color for hybrid #707880
 highlight LineNr guifg=#b294bb
+
+" Auto format go lang file when we save
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
