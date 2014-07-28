@@ -38,5 +38,8 @@ install-aliases:
 install-tmux:
 	@ln -sf `pwd`/tmux.conf ${HOME}/.tmux.conf
 
+install-hydra:
+	@ln -sf `pwd`/hyrda ${HOME}/.hydra
+
 uninstall:
 	echo "nothing yet"
