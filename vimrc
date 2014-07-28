@@ -18,6 +18,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'scrooloose/nerdcommenter'
 
 Bundle 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
@@ -106,3 +107,6 @@ highlight LineNr guifg=#b294bb
 
 " Auto format go lang file when we save
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+nmap \\ <leader>ci
+vmap \\ <leader>ci
