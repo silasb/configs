@@ -19,6 +19,8 @@ Bundle 'tpope/vim-repeat'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'slim-template/vim-slim'
+Bundle 'digitaltoad/vim-jade'
 
 Bundle 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
