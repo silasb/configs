@@ -41,5 +41,8 @@ install-tmux:
 install-hydra:
 	@ln -sf `pwd`/hyrda ${HOME}/.hydra
 
+install-bin:
+	@ln -sf `pwd`/bin ${HOME}/bin
+
 uninstall:
 	echo "nothing yet"
