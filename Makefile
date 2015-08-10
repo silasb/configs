@@ -44,5 +44,8 @@ install-hydra:
 install-bin:
 	@ln -sf `pwd`/bin ${HOME}/bin
 
+install-inputrc:
+	@ln -sf `pwd`/inputrc ${HOME}/.inputrc
+
 uninstall:
 	echo "nothing yet"
