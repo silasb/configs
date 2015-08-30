@@ -20,6 +20,19 @@ uninstall-vim:
 	@rm -i ${HOME}/.vimrc
 	@rm -i ${HOME}/bin/ack
 
+install-nvim:
+	rm -rf ${HOME}/.nvim
+	@ln -sf `pwd`/nvimrc ${HOME}/.nvimrc
+	@ln -sf `pwd`/nvim/ ${HOME}/.nvim
+	@mkdir -p ${HOME}/.nvim/bundle
+	@git clone https://github.com/gmarik/vundle.git ~/.nvim/bundle/vundle
+	@mkdir -p ${HOME}/.nvim/backup
+	@echo "Run nvim +BundleInstall +qall"
+
+uninstall-nvim:
+	@rm -rfi ${HOME}/.nvim
+	@rm -i ${HOME}/.nvimrc
+
 install-git:
 	@ln -sf `pwd`/gitconfig ${HOME}/.gitconfig
 
