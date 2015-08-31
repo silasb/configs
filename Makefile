@@ -60,5 +60,8 @@ install-bin:
 install-inputrc:
 	@ln -sf `pwd`/inputrc ${HOME}/.inputrc
 
+install-irb:
+	@ln -sf `pwd`/irbrc ${HOME}/.irbrc
+
 uninstall:
 	echo "nothing yet"
