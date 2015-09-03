@@ -28,6 +28,8 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'junegunn/vim-easy-align'
 Bundle 'unblevable/quick-scope'
 Plugin 'groenewege/vim-less'
+Plugin 'jeetsukumaran/vim-buffergator'
+let g:buffergator_suppress_keymaps = 1
 
 Bundle 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
@@ -38,6 +40,12 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
+
+" Ruby/Rails themed extensions
+Bundle 'tpope/vim-endwise'
+
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
 
 " Theme
 "Bundle 'w0ng/vim-hybrid'
@@ -121,6 +129,8 @@ nmap \\ <leader>ci
 vmap \\ <leader>ci
 
 map <leader>, :NERDTreeToggle<CR>
+map <leader>b :BuffergatorToggle<CR>
+map <leader>. :Tagbar<CR>
 
 set mouse=
 set clipboard+=unnamedplus
