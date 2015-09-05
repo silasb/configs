@@ -51,8 +51,8 @@ install-aliases:
 install-tmux:
 	@ln -sf `pwd`/tmux.conf ${HOME}/.tmux.conf
 
-install-hydra:
-	@ln -sf `pwd`/hyrda ${HOME}/.hydra
+install-hammerspoon:
+	@ln -sf `pwd`/hammerspoon ${HOME}/.hammerspoon
 
 install-bin:
 	@ln -sf `pwd`/bin ${HOME}/bin
