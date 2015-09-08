@@ -130,6 +130,7 @@ nmap \\ <leader>ci
 vmap \\ <leader>ci
 
 map <leader>, :NERDTreeToggle<CR>
+map <leader>f :NERDTreeFind<CR>
 map <leader>b :BuffergatorToggle<CR>
 map <leader>. :Tagbar<CR>
 
