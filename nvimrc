@@ -30,6 +30,7 @@ Bundle 'unblevable/quick-scope'
 Plugin 'groenewege/vim-less'
 Plugin 'jeetsukumaran/vim-buffergator'
 let g:buffergator_suppress_keymaps = 1
+Plugin 'MattesGroeger/vim-bookmarks'
 
 Bundle 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
