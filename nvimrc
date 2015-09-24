@@ -31,6 +31,9 @@ Plugin 'groenewege/vim-less'
 Plugin 'jeetsukumaran/vim-buffergator'
 let g:buffergator_suppress_keymaps = 1
 Plugin 'MattesGroeger/vim-bookmarks'
+let g:bookmark_highlight_lines = 1
+let g:bookmark_manage_per_buffer = 1
+Plugin 'gabrielelana/vim-markdown'
 
 Bundle 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
@@ -64,7 +67,8 @@ let mapleader = "\<space>"
 
 " Ctrl-P
 
-let g:ctrlp_map = '<leader>t'
+"let g:ctrlp_map = '<leader>t'
+nnoremap <leader>t :CtrlPBufTag<CR>
 
 set hidden
 
