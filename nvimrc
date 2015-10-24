@@ -141,5 +141,5 @@ map <leader>. :Tagbar<CR>
 set mouse=
 set clipboard+=unnamedplus
 
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set cursorline
-set ruler
