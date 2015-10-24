@@ -13,11 +13,12 @@ Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-rails'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'AndrewRadev/vim-eco'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
 Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -34,6 +35,8 @@ Plugin 'MattesGroeger/vim-bookmarks'
 let g:bookmark_highlight_lines = 1
 let g:bookmark_manage_per_buffer = 1
 Plugin 'gabrielelana/vim-markdown'
+Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-fugitive'
 
 Bundle 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 1
@@ -127,9 +130,6 @@ colorscheme desert
 " comment color for hybrid #707880
 highlight LineNr guifg=#b294bb
 
-" Auto format go lang file when we save
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
-
 nmap \\ <leader>ci
 vmap \\ <leader>ci
 
@@ -140,3 +140,6 @@ map <leader>. :Tagbar<CR>
 
 set mouse=
 set clipboard+=unnamedplus
+
+set cursorline
+set ruler
