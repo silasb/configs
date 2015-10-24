@@ -5,57 +5,64 @@
 set nocompatible
 filetype off " required by vundle
 set rtp+=~/.nvim/bundle/vundle
-call vundle#rc()
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-sleuth'
-Bundle 'tpope/vim-rails'
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'AndrewRadev/vim-eco'
-Bundle 'Raimondi/delimitMate'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'fatih/vim-go'
-Bundle 'Xuyuanp/nerdtree-git-plugin'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'slim-template/vim-slim'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'majutsushi/tagbar'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-sleuth'
+Plugin 'tpope/vim-rails'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'AndrewRadev/vim-eco'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'fatih/vim-go'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'slim-template/vim-slim'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'majutsushi/tagbar'
 Plugin 'rust-lang/rust.vim'
 Plugin 'junegunn/vim-easy-align'
-Bundle 'unblevable/quick-scope'
+Plugin 'unblevable/quick-scope'
 Plugin 'groenewege/vim-less'
 Plugin 'jeetsukumaran/vim-buffergator'
-let g:buffergator_suppress_keymaps = 1
 Plugin 'MattesGroeger/vim-bookmarks'
-let g:bookmark_highlight_lines = 1
-let g:bookmark_manage_per_buffer = 1
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-fugitive'
 
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
+
+" Deps for vim-snipmate
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+" Ruby/Rails themed extensions
+Plugin 'tpope/vim-endwise'
+
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+
+" Theme
+"Plugin 'w0ng/vim-hybrid'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 let g:gitgutter_enabled = 1
 highlight clear SignColumn
 
-" Deps for vim-snipmate
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
+let g:bookmark_highlight_lines = 1
+let g:bookmark_manage_per_buffer = 1
 
-" Ruby/Rails themed extensions
-Bundle 'tpope/vim-endwise'
-
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-
-" Theme
-"Bundle 'w0ng/vim-hybrid'
+let g:buffergator_suppress_keymaps = 1
 
 set backupdir=~/.nvim/backup/
 set directory=~/.nvim/backup/
