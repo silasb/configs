@@ -4,10 +4,12 @@
 
 set nocompatible
 filetype off " required by vundle
-set rtp+=~/.nvim/bundle/vundle
+set rtp+=~/.config/nvim/bundle/vundle
 call vundle#begin()
 
+" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-sleuth'
 Plugin 'tpope/vim-rails'
