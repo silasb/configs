@@ -2,9 +2,10 @@
 export CLICOLOR=1
 export LSCOLORS=ExGxcxdxCxegedabagacad
 alias l='ls -lAFh'
-export EDITOR='subl --wait'
+export EDITOR='nvim'
 
-source /Users/silas/opt/etc/bash_completion.d/git-completion.bash
+#source /Users/silas/opt/etc/bash_completion.d/git-completion.bash
+source /usr/local/etc/bash_completion.d/git-completion.bash
 
 # Git status for prompt
 function parse_git_dirty {
