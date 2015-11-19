@@ -115,7 +115,9 @@ set nu
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" should be `<C-H>', but there is in the current version of libterm that
+" affects this.
+nnoremap <BS> <C-W><C-H>
 
 set splitbelow
 set splitright
