@@ -1,0 +1,1 @@
+/Users/silas/repos/configs/nvimrc
