@@ -8,6 +8,7 @@ alias gc='git commit'
 alias gr='git rm'
 
 alias grep='grep -i --color'
-alias ls='ls --color'
+#alias ls='ls --color'
 alias ec2-instances="aws ec2 describe-instances | jq '.Reservations[] | .Instances[] | {Name: .Tags[].Value, InstanceId, ImageId, PrivateIpAddress, PublicIpAddress, State: .State.Name}'"
 alias vi=vim
+alias edit="gs | grep ' M ' | awk '{print \$2}' | xargs $EDITOR"

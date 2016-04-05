@@ -27,13 +27,13 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'slim-template/vim-slim'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'majutsushi/tagbar'
-Plugin 'rust-lang/rust.vim'
+"Plugin 'rust-lang/rust.vim'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'unblevable/quick-scope'
+"Plugin 'unblevable/quick-scope'
 Plugin 'groenewege/vim-less'
 Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'MattesGroeger/vim-bookmarks'
-Plugin 'gabrielelana/vim-markdown'
+"Plugin 'MattesGroeger/vim-bookmarks'
+"Plugin 'gabrielelana/vim-markdown'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-fugitive'
 
@@ -51,12 +51,47 @@ Plugin 'tpope/vim-endwise'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 
+"Plugin 'scrooloose/syntastic'
+Plugin 'itchyny/lightline.vim'
+
 " Theme
 "Plugin 'w0ng/vim-hybrid'
 
+set noshowmode
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+"filetype plugin indent on    " required
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"hi modified guibg=orange guifg=black ctermbg=lightred ctermfg=black
+"set g:lightline+=%{SyntasticStatuslineFlag()}
+
+let g:lightline = {
+      \ 'component': {
+      \   'modified': '%#ModifiedColor#%{MyModified()}',
+      \ }
+      \ }
+function! MyModified()
+  let map = { 'V': 'n', "\<C-v>": 'n', 's': 'n', 'v': 'n', "\<C-s>": 'n', 'c': 'n', 'R': 'n'}
+  let mode = get(map, mode()[0], mode()[0])
+  let bgcolor = {'n': [240, '#585858'], 'i': [31, '#0087af']}
+  exe printf('hi ModifiedColor ctermfg=196 ctermbg=%d guifg=#ff0000 guibg=%s term=bold cterm=bold',
+        \ bgcolor[mode][0], bgcolor[mode][1])
+  return &modified ? 'M' : &modifiable ? '' : '-'
+endfunction
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 let g:gitgutter_enabled = 1
 highlight clear SignColumn
@@ -91,7 +126,6 @@ set softtabstop=2
 set cindent
 set autoindent
 set smarttab
-"set expandtab
 
 " searching
 set hlsearch
@@ -99,6 +133,7 @@ set incsearch
 set ignorecase
 
 set nu
+"set relativenumber
 :nmap \o :set paste!<CR>
 
 :nmap j gj
@@ -118,6 +153,18 @@ nnoremap <C-L> <C-W><C-L>
 " should be `<C-H>', but there is in the current version of libterm that
 " affects this.
 nnoremap <BS> <C-W><C-H>
+
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :q<cr>
+
+"nnoremap B ^
+"nnoremap E $
+" $/^ doesn't do anything
+"nnoremap $ <nop>
+"nnoremap ^ <nop>
+
+" Reformat whole file
+nnoremap g= gg=G``
 
 set splitbelow
 set splitright
@@ -154,3 +201,5 @@ set clipboard+=unnamedplus
 
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set cursorline
+set list
+set expandtab
