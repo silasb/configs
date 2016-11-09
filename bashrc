@@ -22,3 +22,5 @@ export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[34;1m\]\$(parse_git
 export PROMPT_COMMAND='echo -ne "\033]0;$(_userpwd)\007"'
 
 export GOPATH=$HOME/go
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
