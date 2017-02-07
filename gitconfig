@@ -20,13 +20,21 @@
   co = checkout
   lg = log -p
   lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	serve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
   #lol = log --graph --decorate --date=local --pretty=format:'%h %cd (%an) %s%d'
 [push]
   default = current
-[merge]
-  tool = vimdiff
-  conflictstyle = diff3
+  #default = upstream
 [difftool]
   prompt = false
 [rerere]
 	enabled = true
+[diff]
+    tool = vimdiff
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[fetch]
+	recurseSubmodules = false
