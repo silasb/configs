@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# git branch-mru is an plugin for git that allows you to view your most recently used branches.
+
+git branch --sort=-committerdate | tail -r
