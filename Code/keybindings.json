@@ -1,0 +1,22 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+    "key": "ctrl+w","command": "expand_region", "when": "editorTextFocus"
+    },
+    {
+    "key": "ctrl+shift+w","command": "undo_expand_region", "when": "editorTextFocus && editorHasSelection"
+    },
+    {"key": "ctrl+t", "command": "extension.transpose", "when": "editorFocus"},
+    {"key": "cmd+l", "command": "extension.expandToLine", "when": "editorFocus"},
+    {"key": "cmd+j", "command": "extension.joinLines", "when": "editorFocus"},
+     {
+        "key": "shift+enter",
+        "command": "extension.jumpy-word",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "Escape",
+        "command": "extension.jumpy-exit",
+        "when": "editorTextFocus && jumpy.isJumpyMode"
+    }
+]

@@ -64,5 +64,10 @@ install-inputrc:
 install-irb:
 	@ln -sf `pwd`/irbrc ${HOME}/.irbrc
 
+install-code:
+	@ln -sf `pwd`/Code/settings.json ${HOME}/Library/Application\ Support/Code/User/settings.json
+	@ln -sf `pwd`/Code/keybindings.json ${HOME}/Library/Application\ Support/Code/User/keybindings.json
+	@ln -sf `pwd`/Code/snipplets/ ${HOME}/Library/Application\ Support/Code/User/snipplets
+
 uninstall:
 	echo "nothing yet"

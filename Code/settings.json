@@ -1,0 +1,23 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.renderWhitespace": "all",
+    "window.zoomLevel": 0,
+    // "go.buildOnSave": true
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/tests/units.html": true,
+        "**/converage": true,
+        "**/interfaces": true,
+        "**/blueprints": true
+    },
+    "terminal.integrated.fontSize": 12,
+    "editor.fontSize": 12,
+    "vsicons.projectDetection.autoReload": true,
+    "gitlens.codeLens.visibility": "off",
+    "gitlens.blame.annotation.activeLine": "off",
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.iconTheme": "vscode-icons"
+}
