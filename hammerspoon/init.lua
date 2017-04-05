@@ -13,8 +13,7 @@ local alt = {"⌥"}
 local hyper = {"⌘", "⌥", "⌃", "⇧"}
 local nudgekey = {"⌥", "⌃"}
 local yankkey = {"⌥", "⌃","⇧"}
-local pushkey = {"⌃", "⌘"}
-local shiftpushkey= {"⌃", "⌘", "⇧"}
+local pushkey = {"⌘", "⌥"}
 
 -- -----------------
 -- Window management
@@ -53,16 +52,7 @@ hs.hotkey.bind(pushkey, "f", function() push(0,0,1,1) end)
 
 -- Move a window between monitors
 hs.hotkey.bind(pushkey,"1", function() moveToMonitor(1) end) -- Move to first monitor
-hs.hotkey.bind(shiftpushkey,"1", function() -- Move to first monitor and fullscreen
-	moveToMonitor(1)
-	push(0,0,1,1)
-end)
-
 hs.hotkey.bind(pushkey,"2", function() moveToMonitor(2) end) -- Move to second monitor
-hs.hotkey.bind(shiftpushkey,"2", function() -- Move to second monitor and fullscreen
-	moveToMonitor(2)
-	push(0,0,1,1)
-end)
 
 hs.hotkey.bind(pushkey, "w", function() mouseHighlight() end)
 
