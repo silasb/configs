@@ -1,0 +1,8 @@
+Host home
+        HostName derp.mooo.com
+        User silas
+        Port 1422
+
+Host dev
+        User silas
+        ProxyCommand ssh -q home nc -q0 10.5.5.15 22
