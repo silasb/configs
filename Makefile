@@ -25,10 +25,7 @@ install-nvim:
 	@mkdir -p ${HOME}/.config
 	@ln -sf `pwd`/nvim/ ${HOME}/.config/nvim
 	@ln -sf `pwd`/nvimrc ${HOME}/.config/nvim/init.vim
-	@mkdir -p ${HOME}/.config/nvim/bundle
-	@git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/vundle
 	@mkdir -p ${HOME}/.config/nvim/backup
-	@echo "Run nvim +BundleInstall +qall"
 
 uninstall-nvim:
 	@rm -rfi ${HOME}/.nvim

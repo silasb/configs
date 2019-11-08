@@ -13,11 +13,13 @@
         "**/interfaces": true,
         "**/blueprints": true
     },
-    "terminal.integrated.fontSize": 12,
-    "editor.fontSize": 12,
+    "terminal.integrated.fontSize": 13,
+    "editor.fontSize": 13,
     "vsicons.projectDetection.autoReload": true,
     "gitlens.codeLens.visibility": "off",
     "gitlens.blame.annotation.activeLine": "off",
     "workbench.colorTheme": "Atom One Dark",
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "files.trimTrailingWhitespace": true,
+    "java.errors.incompleteClasspath.severity": "ignore"
 }

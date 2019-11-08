@@ -4,32 +4,65 @@ hs.window.animationDuration = 0
 -- Get list of screens and refresh that list whenever screens are plugged or unplugged:
 local screens = hs.screen.allScreens()
 local screenwatcher = hs.screen.watcher.new(function()
-	screens = hs.screen.allScreens()
+    screens = hs.screen.allScreens()
 end)
 screenwatcher:start()
+
+caffeine = hs.menubar.new()
+function setCaffeineDisplay(state)
+    if state then
+        caffeine:setTitle("AWAKE")
+    else
+        caffeine:setTitle("SLEEPY")
+    end
+end
+
+function caffeineClicked()
+    setCaffeineDisplay(hs.caffeinate.toggle("displayIdle"))
+end
+
+if caffeine then
+    caffeine:setClickCallback(caffeineClicked)
+    setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
+end
 
 -- Modifier shortcuts
 local alt = {"⌥"}
 local hyper = {"⌘", "⌥", "⌃", "⇧"}
 local nudgekey = {"⌥", "⌃"}
 local yankkey = {"⌥", "⌃","⇧"}
-local pushkey = {"⌘", "⌥"}
+local pushkey = {"⌃", "⌘"}
 
 -- -----------------
 -- Window management
 -- -----------------
 
+--hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function(window, appName)
+--    local rect = window:frame()
+--
+--	local mousePos = hs.mouse.getRelativePosition()
+--
+--	-- inside the rect
+--	if mousePos.x > rect.x and mousePos.x < rect.x + rect.w and mousePos.y > rect.y and mousePos.y < rect.y + rect.h then
+--	else
+--	  local center = hs.geometry.rectMidPoint(rect)
+--	   hs.mouse.setAbsolutePosition(center)
+--	   mouseHighlight()
+--	end
+--
+--end)
+
 -- Movement hotkeys
-hs.hotkey.bind(nudgekey, 'down', function() nudge(0,100) end) 	--down
-hs.hotkey.bind(nudgekey, "up", function() nudge(0,-100) end)	--up
-hs.hotkey.bind(nudgekey, "right", function() nudge(100,0) end)	--right
-hs.hotkey.bind(nudgekey, "left", function() nudge(-100,0) end)	--left
+hs.hotkey.bind(nudgekey, 'down', function() nudge(0,200) end) 	--down
+hs.hotkey.bind(nudgekey, "up", function() nudge(0,-200) end)	--up
+hs.hotkey.bind(nudgekey, "right", function() nudge(200,0) end)	--right
+hs.hotkey.bind(nudgekey, "left", function() nudge(-200,0) end)	--left
 
 -- Resize hotkeys
-hs.hotkey.bind(yankkey, "up", function() yank(0,-100) end) -- yank bottom up
-hs.hotkey.bind(yankkey, "down", function() yank(0,100) end) -- yank bottom down
-hs.hotkey.bind(yankkey, "right", function() yank(100,0) end) -- yank right side right
-hs.hotkey.bind(yankkey, "left", function() yank(-100,0) end) -- yank right side left
+hs.hotkey.bind(yankkey, "up", function() yank(0,-200) end) -- yank bottom up
+hs.hotkey.bind(yankkey, "down", function() yank(0,200) end) -- yank bottom down
+hs.hotkey.bind(yankkey, "right", function() yank(200,0) end) -- yank right side right
+hs.hotkey.bind(yankkey, "left", function() yank(-200,0) end) -- yank right side left
 
 -- Push to screen edge
 hs.hotkey.bind(pushkey,"left", function() push(0,0,0.5,1) end) 		-- left side
@@ -38,21 +71,80 @@ hs.hotkey.bind(pushkey,"up", function()	push(0,0,1,0.5) end) 		-- top half
 hs.hotkey.bind(pushkey,"down", function()	push(0,0.5,1,0.5) end)	-- bottom half
 
 -- Center window with some room to see the desktop
-hs.hotkey.bind(pushkey, "m", function() push(0.05,0.05,0.9,0.9) end)
+local cur_zoom_x = 0.25
+local cur_zoom_y = 0.05
+local cur_zoom_h = 0.9
+local cur_zoom_w = 0.9
+
+hs.hotkey.bind(pushkey, 'm', function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local max = win:screen():frame()
+
+    local x = f
+
+    local log = hs.logger.new('mymodule', 'debug')
+    -- log:i(f.w)
+    log:i((((max.w - f.w) / 2) + max.x))
+
+    -- x.x = ((max.w - f.w) / 2) + max.x
+    -- x.y = ((max.h - f.h) / 2) + max.y
+    -- win:setFrame(x)
+
+    push(
+        -- ((max.w - f.w) / 2) + max.x,
+        0.15,
+        -- ((max.h - f.h) / 2) + max.y,
+        0.15,
+        0.75,
+        0.75
+    )
+  end)
+
+-- hs.hotkey.bind(pushkey, "m", function()
+--     local win = hs.window.focusedWindow()
+--     -- win:centerOnScreen()
+--     local screen = win:screen()
+--     local max = screen:frame()
+
+--     cur_zoom_w = cur_zoom_w - 0.15
+--     if cur_zoom_w < 0.5 then
+--         cur_zoom_w = 0.9
+--     end
+--     cur_zoom_h = cur_zoom_h - 0.15
+--     if cur_zoom_h < 0.5 then
+--         cur_zoom_h = 0.9
+--     end
+
+--     local log = hs.logger.new('mymodule', 'debug')
+
+--     log:i(max)
+
+--     push(
+--         cur_zoom_x * cur_zoom_w,
+--         cur_zoom_y * cur_zoom_h,
+--         cur_zoom_w,
+--         cur_zoom_h
+--     )
+-- end)
 
 -- Fullscreen
 hs.hotkey.bind(pushkey, "f", function() push(0,0,1,1) end)
 
 -- Chat windows (arrange in grid of 5 on right hand of screen)
---hs.hotkey.bind(hyper, "1", function() push(0.8,0,0.2,0.2) end)
---hs.hotkey.bind(hyper, "2", function() push(0.8,0.2,0.2,0.2) end)
---hs.hotkey.bind(hyper, "3", function() push(0.8,0.4,0.2,0.2) end)
---hs.hotkey.bind(hyper, "4", function() push(0.8,0.6,0.2,0.2) end)
+hs.hotkey.bind(pushkey, "q", function() push(0.0,0.0,0.5,0.5) end)
+hs.hotkey.bind(pushkey, "a", function() push(0.0,0.5,0.5,0.5) end)
+hs.hotkey.bind(pushkey, "p", function() push(0.5,0.0,0.5,0.5) end)
+hs.hotkey.bind(pushkey, "l", function() push(0.5,0.5,0.5,0.5) end)
 --hs.hotkey.bind(hyper, "5", function() push(0.8,0.8,0.2,0.2) end)
 
 -- Move a window between monitors
 hs.hotkey.bind(pushkey,"1", function() moveToMonitor(1) end) -- Move to first monitor
 hs.hotkey.bind(pushkey,"2", function() moveToMonitor(2) end) -- Move to second monitor
+
+hs.hotkey.bind(pushkey,"z", function() push(0, 0, (1/3), 1) end)
+hs.hotkey.bind(pushkey,"x", function() push((1/3), 0, (1/3), 1) end)
+hs.hotkey.bind(pushkey,"c", function() push((2/3), 0, (1/3), 1) end)
 
 hs.hotkey.bind(pushkey, "w", function() mouseHighlight() end)
 
@@ -61,6 +153,36 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
   hs.reload()
   hs.alert.show("Config loaded")
 end)
+
+-- Move Mouse to center of next Monitor
+hs.hotkey.bind({"⌘", "⌃"}, '`', function()
+   local screen = hs.mouse.getCurrentScreen()
+   local nextScreen = screen:next()
+   local rect = nextScreen:fullFrame()
+   local center = hs.geometry.rectMidPoint(rect)
+
+   -- hs.mouse.setRelativePosition(center, nextScreen)
+   hs.mouse.setAbsolutePosition(center)
+end)
+
+
+local function mousePress(eventobj)
+--	hs.alert(eventobj)
+    if eventobj:getButtonState(3) then
+        hs.eventtap.event.newKeyEvent({'command'}, '[', true):post()
+        hs.eventtap.event.newKeyEvent({'command'}, '[', false):post()
+    end
+
+    if eventobj:getButtonState(4) then
+        hs.eventtap.event.newKeyEvent({'command'}, ']', true):post()
+        hs.eventtap.event.newKeyEvent({'command'}, ']', false):post()
+    end
+
+    return false
+    -- hs.alert.show(hs.mouse.getButtons())
+end
+
+hs.eventtap.new({hs.eventtap.event.types.otherMouseDown}, mousePress):start()
 
 -- Mouse circle example from getting started guide.
 -- This places a red circle around the mouse pointer (because I lose it a lot)
@@ -76,7 +198,7 @@ function mouseHighlight()
         end
     end
     -- Get the current co-ordinates of the mouse pointer
-    mousepoint = hs.mouse.get()
+    mousepoint = hs.mouse.getAbsolutePosition()
     -- Prepare a big red circle around the mouse pointer
     mouseCircle = hs.drawing.circle(hs.geometry.rect(mousepoint.x-40, mousepoint.y-40, 80, 80))
     mouseCircle:setStrokeColor({["red"]=1,["blue"]=0,["green"]=0,["alpha"]=1})

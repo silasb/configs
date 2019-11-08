@@ -1,1 +1,1 @@
-/Users/silas/repos/configs/nvimrc
+/Users/silasbaronda/repos/configs/nvimrc
