@@ -1,6 +1,4 @@
 #!/bin/bash
 
-cd $HOME/repos
-php -S localhost:8000 adminer-4.0.0-en.php
-
-open 'http://localhost:8000'
+cd $HOME/repos/adminer/
+php -S 0.0.0.0:8000 adminer/plugin.php
