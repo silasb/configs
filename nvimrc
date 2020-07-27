@@ -9,6 +9,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Plugins go here
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'rhysd/vim-crystal'
+
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-rails'
 Plug 'pangloss/vim-javascript'
@@ -17,6 +21,7 @@ Plug 'mxw/vim-jsx'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-dispatch'
 Plug 'vim-ruby/vim-ruby'
 "Plug 'kchmck/vim-coffee-script'
 Plug 'fatih/vim-go'
@@ -73,7 +78,7 @@ Plug 'chaoren/vim-wordmotion'
 "Plug 'mhinz/vim-grepper'
 
 " [q and ]q for quickfix
-Plug 'tpope/vim-unimpaired'
+"Plug 'tpope/vim-unimpaired'
 
 Plug 'rakr/vim-one'
 Plug 'jpo/vim-railscasts-theme'
@@ -85,6 +90,8 @@ Plug 'jpo/vim-railscasts-theme'
 "Plugin 'w0ng/vim-hybrid'
 
 call plug#end()
+
+set updatetime=300
 
 "noremap <leader>gr :GrepperRg<Space>
 "nnoremap <leader>g :Grepper -tool git<cr>
@@ -165,7 +172,7 @@ endfunction
   "autocmd BufWritePost * call Lint()
 "augroup end
 
-let g:gitgutter_enabled = 1
+"let g:gitgutter_enabled = 1
 highlight clear SignColumn
 
 let g:bookmark_highlight_lines = 1
@@ -199,6 +206,9 @@ if executable('fzf')
   nnoremap <leader>r :BTags<CR>
   nnoremap <leader>t :FZF!<CR>
   " nnoremap <leader>p :History!<CR>
+  nmap <leader>l :BLines<CR>
+  nmap <leader>L :Lines<CR>
+  nmap <leader>/ :Ag<CR>
 
   let g:fzf_action = {
         \ 'ctrl-s': 'split',
@@ -290,11 +300,11 @@ set splitright
 nnoremap <leader><space> :noh<CR>
 
 " neomake
-nmap <Leader><Space>o :lopen<CR>      " open location window
-nmap <Leader><Space>c :lclose<CR>     " close location window
-nmap <Leader><Space>, :ll<CR>         " go to current error/warning
-nmap <Leader><Space>n :lnext<CR>      " next error/warning
-nmap <Leader><Space>p :lprev<CR>      " previous error/warning
+"nmap <Leader><Space>o :lopen<CR>      " open location window
+"nmap <Leader><Space>c :lclose<CR>     " close location window
+"nmap <Leader><Space>, :ll<CR>         " go to current error/warning
+"nmap <Leader><Space>n :lnext<CR>      " next error/warning
+"nmap <Leader><Space>p :lprev<CR>      " previous error/warning
 
 "nnoremap gf <C-W>f
 "nnoremap gF gf
@@ -352,7 +362,12 @@ map <leader>f :NERDTreeFind<CR>
 map <leader>b :BuffergatorToggle<CR>
 "map <leader>. :Tagbar<CR>
 "map <leader>a :Ack <cword> 
+map <leader>a :Ag <C-r>=expand('<cword>')<cr><cr>
+"map <leader>a :Ag! "<cword>"<cr>
 "nnoremap <leader>bs :cex []<BAR>bufdo vimgrepadd @@g %<BAR>cw<s-left><s-left><right>
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
 set mouse=
 set clipboard+=unnamedplus
@@ -368,3 +383,24 @@ set list
 
 set lazyredraw
 set regexpengine=1
+
+let g:rails_projections = {
+      \  "app/controllers/*_controller.rb": {
+      \      "test": [
+      \        "spec/requests/{}_controller_spec.rb",
+      \        "spec/controllers/{}_controller_spec.rb",
+      \        "test/controllers/{}_controller_test.rb"
+      \      ],
+      \      "alternate": [
+      \        "spec/requests/{}_controller_spec.rb",
+      \        "spec/controllers/{}_controller_spec.rb",
+      \        "test/controllers/{}_controller_test.rb"
+      \      ],
+      \   },
+      \   "spec/requests/*_controller_spec.rb": {
+      \      "command": "request",
+      \      "alternate": "app/controllers/{}_controller.rb",
+      \      "template": "require 'rails_helper'\n\n" .
+      \        "RSpec.describe '{}' do\nend",
+      \   },
+      \ }
