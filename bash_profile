@@ -32,7 +32,7 @@ export NVM_DIR=~/.nvm
 
 #eval $(docker-machine env default)
 
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules --ignore .gradle --ignore coverage --ignore log -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules --ignore .gradle --ignore coverage --ignore log --ignore tags -g ""'
 
 if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
