@@ -18,7 +18,6 @@ alias prods="/usr/local/bin/aptible ssh rails c --app beam-staging"
 alias less='less -R'
 alias ta='tmux attach -t'
 alias ts='tmux new -s'
-alias aptible='/usr/local/bin/aptible'
 alias bmysql='mysql -h 127.0.0.1 -u beam_app_dev -p beam_app_dev'
 
 alias webservices="docker-compose -f .docker/web-services.yml"
