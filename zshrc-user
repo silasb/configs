@@ -1,0 +1,3 @@
+source_path=$(dirname $0)
+
+source $source_path/aliases

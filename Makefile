@@ -45,11 +45,13 @@ install-bash:
 install-aliases:
 	@ln -sf `pwd`/aliases ${HOME}/.aliases
 	@. ${HOME}/.aliases
+	@echo 'source `pwd`/zshrc-user' >> ~/.zshrc
 
 install-tmux:
 	@ln -sf `pwd`/tmux.conf ${HOME}/.tmux.conf
 
 install-hammerspoon:
+	brew install --cask hammerspoon
 	@ln -sf `pwd`/hammerspoon ${HOME}/.hammerspoon
 
 install-bin:
