@@ -34,9 +34,11 @@ uninstall-nvim:
 install-git:
 	@ln -sf `pwd`/gitconfig ${HOME}/.gitconfig
 
-install-zfs:
+install-zsh:
 	@ln -sf `pwd`/zshrc ${HOME}/.zshrc
 	@ln -sf `pwd`/zprofile ${HOME}/.zprofile
+	@git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+	@echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 install-bash:
 	@ln -sf `pwd`/bash_profile ${HOME}/.bash_profile

@@ -23,3 +23,6 @@ alias bmysql='mysql -h 127.0.0.1 -u beam_app_dev -p beam_app_dev'
 alias webservices="docker-compose -f .docker/web-services.yml"
 alias lg='lazygit'
 alias k=kubectl
+
+alias a="arch -x86_64"
+alias ibrew="arch -x86_64 /usr/local/Homebrew/bin/brew"
