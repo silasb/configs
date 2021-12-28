@@ -8,7 +8,8 @@ set nocompatible
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Plugins go here
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'rhysd/vim-crystal'

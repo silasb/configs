@@ -1,3 +1,6 @@
 source_path=$(dirname $0)
 
+export EDITOR=nvim
 source $source_path/aliases
+
+export PATH=$HOME/go/bin:$PATH
