@@ -5,7 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-eval "$(rbenv init - zsh)"
+if command "rbenv" &> /dev/null; then
+  eval "$(rbenv init - zsh)"
+fi
 source ~/repos/configs/zshrc-user
 
 # for use with binstubs
