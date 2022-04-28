@@ -22,7 +22,7 @@ export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
-export PATH=/opt/homebrew/bin:/opt/homebrew/opt/mysql-client@5.7/bin:/Users/silas/.nvm/versions/node/v14.18.2/bin:/usr/local/homebrew/bin:/usr/local/homebrew/sbin:$PATH
+export PATH=/opt/homebrew/opt/mysql@5.7/bin:/opt/homebrew/bin:/Users/silas/.nvm/versions/node/v14.18.2/bin:/usr/local/homebrew/bin:/usr/local/homebrew/sbin:$PATH
 
 bindkey -e
 
@@ -39,6 +39,14 @@ zle -N backward-kill-dir
 bindkey '^[^?' backward-kill-dir
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
+if command "zoxide" &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+if command "pyenv" &> /dev/null; then
+  eval "$(pyenv init -)"
+fi

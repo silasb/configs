@@ -3,3 +3,7 @@ if [[ `uname -m` == 'arm64' ]]; then
 else
   eval "$(/usr/local/homebrew/bin/brew shellenv)"
 fi
+
+if command "pyenv" &> /dev/null; then
+  eval "$(pyenv init --path)"
+fi
