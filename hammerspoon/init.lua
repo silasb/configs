@@ -273,7 +273,7 @@ function moveToMonitor(x)
 		x = x-1
 	end
 
-	win:moveToScreen(newScreen)
+	win:moveToScreen(newScreen, false, true)
 end
 
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
