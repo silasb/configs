@@ -383,7 +383,7 @@ set list
 "let g:ruby_foldable_groups = 'def #'
 
 set lazyredraw
-set regexpengine=1
+set regexpengine=0
 
 let g:rails_projections = {
       \  "app/controllers/*_controller.rb": {
