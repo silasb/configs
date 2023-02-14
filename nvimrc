@@ -28,7 +28,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'fatih/vim-go'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 "Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-easy-align'
 
@@ -172,6 +172,11 @@ endfunction
   "autocmd!
   "autocmd BufWritePost * call Lint()
 "augroup end
+
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCompactSexyComs = 1
+" let g:NERDCreateDefaultMappings = 1
 
 "let g:gitgutter_enabled = 1
 highlight clear SignColumn
@@ -332,8 +337,10 @@ colorscheme railscasts
 " comment color for hybrid #707880
 "highlight LineNr guifg=#b294bb
 
-nmap \\ <leader>ci
-vmap \\ <leader>ci
+" nmap \\ <leader>ci
+nmap \\ <Plug>NERDCommenterToggle
+" vmap \\ <leader>ci
+vmap \\ <Plug>NERDCommenterToggle
 
 "
 " Pane bindings
