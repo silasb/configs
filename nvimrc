@@ -215,6 +215,7 @@ if executable('fzf')
   nmap <leader>l :BLines<CR>
   nmap <leader>L :Lines<CR>
   nmap <leader>/ :Ag<CR>
+  nnoremap <C-f> :Ag<Cr>
 
   let g:fzf_action = {
         \ 'ctrl-s': 'split',
@@ -376,6 +377,9 @@ map <leader>a :Ag <C-r>=expand('<cword>')<cr><cr>
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+
+"set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
+"nnoremap <C-f> :Rg<Cr>
 
 set mouse=
 set clipboard+=unnamedplus
