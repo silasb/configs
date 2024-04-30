@@ -70,5 +70,9 @@ install-code:
 	@ln -sf `pwd`/Code/keybindings.json ${HOME}/Library/Application\ Support/Code/User/keybindings.json
 	@ln -sf `pwd`/Code/snipplets/ ${HOME}/Library/Application\ Support/Code/User/snipplets
 
+install-tiling-window-manager:
+	@ln -sf `pwd`/yabairc ${HOME}/.yabairc
+	@ln -sf `pwd`/skhdrc ${HOME}/.skhdrc
+
 uninstall:
 	echo "nothing yet"

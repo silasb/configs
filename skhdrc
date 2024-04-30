@@ -1,0 +1,44 @@
+alt - return : osascript -e 'tell application "iTerm2" to create window with default profile command ""'
+#|| open -na iTerm
+
+# open Chrome.
+alt + shift - return : open -n -a "Google Chrome"
+
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
+
+alt - s : yabai -m display --focus west
+alt - g : yabai -m display --focus east
+
+shift + alt - r : yabai -m space --rotate 270
+shift + alt - y : yabai -m space --mirror y-axis
+shift + alt - x : yabai -m space --mirror x-axis
+shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+ctrl + alt - f : yabai -m window --toggle zoom-fullscreen
+shift + alt - e : yabai -m space --balance
+
+
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - h : yabai -m window --swap west
+shift + alt - l : yabai -m window --swap east
+
+
+ctrl + alt - j : yabai -m window --warp south
+ctrl + alt - k : yabai -m window --warp north
+ctrl + alt - h : yabai -m window --warp west
+ctrl + alt - l : yabai -m window --warp east
+
+
+shift + alt - s : yabai -m window --display west; yabai -m display --focus west
+shift + alt - g : yabai -m window --display east; yabai -m display --focus east
+
+shift + alt - 1 : yabai -m window --space 1
+shift + alt - 2 : yabai -m window --space 2
+shift + alt - 3 : yabai -m window --space 3
+shift + alt - 4 : yabai -m window --space 4
+
+ctrl + alt - r : yabai --restart-service
