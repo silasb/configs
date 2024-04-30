@@ -44,6 +44,7 @@
   #lol = log --graph --decorate --date=local --pretty=format:'%h %cd (%an) %s%d'
 [push]
   default = current
+	autoSetupRemote = true
   #default = upstream
 [difftool]
   prompt = false
@@ -74,3 +75,5 @@ browser=open
 	rebase = false
 [init]
 	defaultBranch = main
+[credential]
+	helper = osxkeychain

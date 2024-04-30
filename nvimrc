@@ -10,7 +10,19 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Plugins go here
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+  " LSP Support
+  Plug 'neovim/nvim-lspconfig'                           " Required
+  Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'} " Optional
+  Plug 'williamboman/mason-lspconfig.nvim'               " Optional
+
+  " Autocompletion
+  Plug 'hrsh7th/nvim-cmp'         " Required
+  Plug 'hrsh7th/cmp-nvim-lsp'     " Required
+  Plug 'L3MON4D3/LuaSnip'         " Required
+
+  Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
 
 Plug 'rhysd/vim-crystal'
 
@@ -217,10 +229,12 @@ if executable('fzf')
   nmap <leader>/ :Ag<CR>
   nnoremap <C-f> :Ag<Cr>
 
+  " let g:fzf_vim = {}
+  " let g:fzf_vim.listproc = { list -> fzf#vim#listproc#quickfix(list) }
+
   let g:fzf_action = {
-        \ 'ctrl-s': 'split',
-        \ 'ctrl-v': 'vsplit'
-        \ }
+    \ 'ctrl-s': 'split',
+    \ 'ctrl-v': 'vsplit' }
 
   imap <C-x><C-f> <plug>(fzf-complete-file-ag)
   imap <C-x><C-l> <plug>(fzf-complete-line)
@@ -399,21 +413,11 @@ set regexpengine=0
 let g:rails_projections = {
       \  "app/controllers/*_controller.rb": {
       \      "test": [
-      \        "spec/requests/{}_controller_spec.rb",
-      \        "spec/controllers/{}_controller_spec.rb",
-      \        "test/controllers/{}_controller_test.rb"
+      \        "spec/requests/{}_spec.rb",
       \      ],
       \      "alternate": [
-      \        "spec/requests/{}_controller_spec.rb",
-      \        "spec/controllers/{}_controller_spec.rb",
-      \        "test/controllers/{}_controller_test.rb"
+      \        "spec/requests/{}_spec.rb",
       \      ],
-      \   },
-      \   "spec/requests/*_controller_spec.rb": {
-      \      "command": "request",
-      \      "alternate": "app/controllers/{}_controller.rb",
-      \      "template": "require 'rails_helper'\n\n" .
-      \        "RSpec.describe '{}' do\nend",
       \   },
       \   "spec/requests/*_spec.rb": {
       \      "command": "request",
@@ -422,3 +426,5 @@ let g:rails_projections = {
       \        "RSpec.describe '{}' do\nend",
       \   },
       \ }
+
+lua require('silasb')

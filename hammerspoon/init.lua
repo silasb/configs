@@ -32,6 +32,7 @@ local hyper = {"⌘", "⌥", "⌃", "⇧"}
 local nudgekey = {"⌥", "⌃"}
 local yankkey = {"⌥", "⌃","⇧"}
 local pushkey = {"⌃", "⌘"}
+local superPushkey = {"⌃", "⌥", "⌘"}
 
 -- -----------------
 -- Window management
@@ -145,6 +146,10 @@ hs.hotkey.bind(pushkey,"2", function() moveToMonitor(2) end) -- Move to second m
 hs.hotkey.bind(pushkey,"z", function() push(0, 0, (1/3), 1) end)
 hs.hotkey.bind(pushkey,"x", function() push((1/3), 0, (1/3), 1) end)
 hs.hotkey.bind(pushkey,"c", function() push((2/3), 0, (1/3), 1) end)
+
+hs.hotkey.bind(superPushkey,"z", function() push(0, 0, (2/3), 1) end)
+-- hs.hotkey.bind(superPushkey,"x", function() push((1/3), 0, (1/3), 1) end)
+hs.hotkey.bind(superPushkey,"c", function() push((1/3), 0, (2/3), 1) end)
 
 hs.hotkey.bind(pushkey, "w", function() mouseHighlight() end)
 
