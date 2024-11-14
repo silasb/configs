@@ -11,7 +11,8 @@ alias ls='ls --color'
 alias ec2-instances="aws ec2 describe-instances | jq '.Reservations[] | .Instances[] | {Name: .Tags[].Value, InstanceId, ImageId, PrivateIpAddress, PublicIpAddress, State: .State.Name}'"
 alias vi=vim
 alias edit="gs | grep ' M ' | awk '{print \$2}' | xargs $EDITOR"
-alias le="fzf | xargs $EDITOR"
+#alias le="fzf | xargs $EDITOR"
+alias e=le
 alias fs="fzf | xargs $EDITOR"
 alias less='less -R'
 alias ta='tmux attach -t'
@@ -25,3 +26,7 @@ alias a="arch -x86_64"
 alias ibrew="arch -x86_64 /usr/local/Homebrew/bin/brew"
 
 alias hup="hub dev up"
+
+alias history="history 0"
+
+alias cd="z"
