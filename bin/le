@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
 
-fzf -q"$@" | xargs $EDITOR
+if [ "$#" -ne 1 ]; then
+	fzf -m | xargs $EDITOR
+else
+	fzf -m -q"$@" | xargs $EDITOR
+fi
+

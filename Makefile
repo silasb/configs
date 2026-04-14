@@ -74,5 +74,10 @@ install-tiling-window-manager:
 	@ln -sf `pwd`/yabairc ${HOME}/.yabairc
 	@ln -sf `pwd`/skhdrc ${HOME}/.skhdrc
 
+install-wezterm:
+	rm -rf ${HOME}/.config/wezterm
+	@mkdir -p ${HOME}/.config
+	@ln -sf `pwd`/wezterm/ ${HOME}/.config/wezterm
+
 uninstall:
 	echo "nothing yet"
