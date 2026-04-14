@@ -13,18 +13,18 @@ Plug 'junegunn/fzf.vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " LSP Support
-  Plug 'neovim/nvim-lspconfig'                           " Required
-  Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'} " Optional
-  Plug 'williamboman/mason-lspconfig.nvim'               " Optional
+  " Plug 'neovim/nvim-lspconfig'                           " Required
+  " Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'} " Optional
+  " Plug 'williamboman/mason-lspconfig.nvim'               " Optional
 
   " Autocompletion
-  Plug 'hrsh7th/nvim-cmp'         " Required
-  Plug 'hrsh7th/cmp-nvim-lsp'     " Required
-  Plug 'L3MON4D3/LuaSnip'         " Required
+  " Plug 'hrsh7th/nvim-cmp'         " Required
+  " Plug 'hrsh7th/cmp-nvim-lsp'     " Required
+  " Plug 'L3MON4D3/LuaSnip'         " Required
 
-  Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
+  " Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
 
-Plug 'rhysd/vim-crystal'
+" Plug 'rhysd/vim-crystal'
 
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-rails'
@@ -52,7 +52,7 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 
 Plug 'airblade/vim-gitgutter'
 
@@ -104,7 +104,7 @@ Plug 'jpo/vim-railscasts-theme'
 
 call plug#end()
 
-set updatetime=300
+set updatetime=50
 
 "noremap <leader>gr :GrepperRg<Space>
 "nnoremap <leader>g :Grepper -tool git<cr>
@@ -221,6 +221,7 @@ if executable('fzf')
   nnoremap <silent> <C-t> :Files<cr>
   nnoremap <silent> <C-p> :History<cr>
   nnoremap <silent> <C-b> :Buffers<CR>
+  nnoremap <silent> <C-o> :Tags<CR>
   nnoremap <leader>r :BTags<CR>
   nnoremap <leader>t :FZF!<CR>
   " nnoremap <leader>p :History!<CR>
@@ -407,7 +408,7 @@ set list
 "let g:ruby_fold = 1
 "let g:ruby_foldable_groups = 'def #'
 
-set lazyredraw
+" set lazyredraw
 set regexpengine=0
 
 let g:rails_projections = {

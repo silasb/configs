@@ -9,7 +9,7 @@ fi
 source ~/repos/configs/zshrc-user
 
 # for use with binstubs
-#export PATH=./bin:$PATH
+export PATH=./bin:$PATH
 
 if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
@@ -28,6 +28,7 @@ bindkey -e
 
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules --ignore .gradle --ignore coverage --ignore log --ignore tags -g ""'
+export FZF_DEFAULT_OPTS='-i'
 
 backward-kill-dir () {
     local WORDCHARS=${WORDCHARS/\/}
